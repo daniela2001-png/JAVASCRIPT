@@ -55,7 +55,8 @@ In this project we are tasked with creating our own simple **UNIX** command inte
 
 ------------
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
-#Tasks
+
+# Tasks
 
 ------------
 
@@ -179,7 +180,9 @@ In this project we are tasked with creating our own simple **UNIX** command inte
 
 ------------
 &bull; Implement the **exit built-in**, that exits the shell
+
 &bull; Usage: **exit**
+
 &bull; You **don’t** have to handle any argument to the built-in exit
 
 ------------
