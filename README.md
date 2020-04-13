@@ -60,7 +60,7 @@ In this project we are tasked with creating our own simple **UNIX** command inte
 
 ------------
 
-## README, man, AUTHORS:
+## README, man, AUTHORS
 
 ------------
 &bull;  Write a **README**
@@ -71,7 +71,7 @@ In this project we are tasked with creating our own simple **UNIX** command inte
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
 
 
-## Betty would be proud:
+## Betty would be proud
 
 ------------
 
