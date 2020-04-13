@@ -109,7 +109,7 @@ In this project we are tasked with creating our own simple **UNIX** command inte
 
 &bull; Implement **built-ins**
 
-&bull; Handle **special characters ** 
+&bull; Handle **special characters** 
 
 &bull; Be able to **move the cursor**
 
@@ -372,4 +372,5 @@ $
 **Daniela Morales**  | 1524@holbertonschool.com  
 
 **Jefferson Leon**   | 1527@holbertonschool.com 
+
 ------------
