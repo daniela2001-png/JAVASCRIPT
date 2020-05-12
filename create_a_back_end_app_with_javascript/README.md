@@ -36,5 +36,5 @@ A function called getContentType, which will take a string representing a filena
 To run these tests, first open the root project directory in your terminal. Then run **npm install** to install all necessary testing dependencies (you will only need to do this step once). Finally,  run **npm run test**. You will see a list of tests that ran with information about whether or not each test passed. After this list, you will see more specific output about why each failing test failed.
 
 ------------
-[WEBPAGE:](http://file:///home/danibella/Downloads/project-0-content-creators-start/index.html "LOOK HERE THE WEBPAGE:")
+[WEBPAGE:](https://s3.amazonaws.com/codecademy-content/programs/build-apis/projects/build-apis-project-0-content-creators/index.html)
  
