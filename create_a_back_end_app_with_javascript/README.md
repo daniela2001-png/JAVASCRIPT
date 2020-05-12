@@ -1,8 +1,8 @@
-#Content Creators Contracting
+# Content Creators Contracting
 
 ------------
 
-##Project Overview
+## Project Overview
 
 ------------
 
@@ -14,11 +14,11 @@ They have managed to craft the code to get the file extension from a string cont
     const extension = filename.match(/.*\.([^\.]*)$/)[1];
 
 ------------
-##Implementation Details
+## Implementation Details
 
 ------------
 
-####To complete this project, your code will need to contain the following:
+#### To complete this project, your code will need to contain the following:
 
 A function called getContentType, which will take a string representing a filename and return the proper content-type extension. You will need implement the functionality for determining content types for :
 
@@ -29,7 +29,7 @@ A function called getContentType, which will take a string representing a filena
 
 ------------
 
-##Testing
+## Testing
 
 ------------
 
