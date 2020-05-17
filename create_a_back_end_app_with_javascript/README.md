@@ -1,8 +1,8 @@
-#Content Creators Contracting
+# Content Creators Contracting
 
 ------------
 
-##Project Overview
+## Project Overview
 
 ------------
 
@@ -14,11 +14,11 @@ They have managed to craft the code to get the file extension from a string cont
     const extension = filename.match(/.*\.([^\.]*)$/)[1];
 
 ------------
-##Implementation Details
+## Implementation Details
 
 ------------
 
-####To complete this project, your code will need to contain the following:
+#### To complete this project, your code will need to contain the following:
 
 A function called getContentType, which will take a string representing a filename and return the proper content-type extension. You will need implement the functionality for determining content types for :
 
@@ -29,12 +29,12 @@ A function called getContentType, which will take a string representing a filena
 
 ------------
 
-##Testing
+## Testing
 
 ------------
 
 To run these tests, first open the root project directory in your terminal. Then run **npm install** to install all necessary testing dependencies (you will only need to do this step once). Finally,  run **npm run test**. You will see a list of tests that ran with information about whether or not each test passed. After this list, you will see more specific output about why each failing test failed.
 
 ------------
-[WEBPAGE:](http://file:///home/danibella/Downloads/project-0-content-creators-start/index.html "LOOK HERE THE WEBPAGE:")
+[WEBPAGE:](https://s3.amazonaws.com/codecademy-content/programs/build-apis/projects/build-apis-project-0-content-creators/index.html)
  
