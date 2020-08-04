@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ESTRUCTURA DE DATOS INMUTABLES EN JS</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const daniela = {
+        nombre:'daniela',
+        apellido:'morales',
+        edad:18
+      }
+      // function cumple (persona) {
+      //  return persona.edad += 1
+      // }
+      const cumple_inmutable = persona => ({
+        ...persona,
+        edad: persona.edad +1
+      })
+    </script>
+  </body>
+</html>

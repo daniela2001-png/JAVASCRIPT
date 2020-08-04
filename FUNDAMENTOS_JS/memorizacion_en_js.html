@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+        La memorización es una técnica de programación que nos permite ahorrar
+        cómputo o procesamiento en JavaScript, al ir almacenando el resultado invariable
+        de una función para que no sea necesario volver a ejecutar todas las instrucciones
+        de nuevo, cuando se vuelva a llamar con los mismos parámetros.
+        Es similar a usar memoria cache.
+        en este caso haremos una funcion recursiva factorial
+
+      */
+      function factor(n) {
+        if (n === 1 || n === 0) {
+          return 1
+        }
+        return n * factor(n -1)
+      }
+
+
+
+    </script>
+  </body>
+</html>

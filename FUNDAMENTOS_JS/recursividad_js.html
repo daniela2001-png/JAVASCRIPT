@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+       vamos a crear una funcion que diviira recursivamente
+       13 |__4__
+
+       13 -4 = 9    1 donde 1 es le numero de cuentas
+       9 -4 = 5     1
+       5 -4 = 1     1
+       1 -4 = -3    0 si es igual a cero sera nuestro caso base o salida de nuestra recursion!
+
+      */
+
+      function dividir (dividendo, divisor)
+      {
+        if (dividendo < divisor) {
+          return 0
+        }
+        return 1 + dividir(dividendo - divisor, divisor)
+      }
+    </script>
+  </body>
+</html>

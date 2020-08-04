@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CONTETXO THIS EN JS</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      El contexto (o alcance) de una función es por lo general, window.
+      Así que en ciertos casos, cuando intentamos referirnos a this en alguna parte del código,
+      es posible que tengamos un comportamiento inesperado, porque el contexto quizás no sea el que esperamos.
+
+      Existen al menos tres maneras de cambiar el contexto de una función.
+
+      Usando el método .bind, enviamos la referencia a la función sin ejecutarla, pasando el contexto como parámetro.
+      Usando el método .call, ejecutamos inmediatamente la función con el contexto indicado
+      Usando el método .apply, es similar a .call pero los parámetros adicionales se pasan como un arreglo de valores
+
+      */
+      const daniela = {
+        nombre:'daniela',
+        edad:18
+      }
+      function saludar (saludo = 'ome gonorrea ome') {
+        console.log(`${saludo} MI NOMBRE ES: ${this.nombre}`) // aqui this sera window por lo tanto nos dira: hola mi nombres es undefined!
+      }
+      // el bind no ata el objeto daniela a la funcion saludar(), por lo contrario lo deja quieto y crea una nueva funcion que le da el contetxo a this!
+      const saludar_a_daniela = saludar.bind(daniela) // aqui con el metodo bind le doy contexto a this para que ya no sea window
+      
+    </script>
+  </body>
+</html>

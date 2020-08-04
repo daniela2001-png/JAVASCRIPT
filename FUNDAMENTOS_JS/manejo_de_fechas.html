@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function dias_fechas(fecha1, fecha2) {
+        const dia_em_ms = 1000 * 60 * 60 * 24
+        const diferencia = Math.abs(fecha1 - fecha2)
+
+        return Math.floor(diferencia / dia_em_ms)
+      }
+      const hoy = new Date()
+      const mi_fecha_de_nac = new Date(1996, 1, 16)
+    </script>
+  </body>
+</html>
