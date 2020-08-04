@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+
+      El punto y coma es opcional en JavaScript, excepto en algunos casos:
+
+      Cuando usamos varias instrucciones en una mísma línea
+      Al comenzar la próxima línea con un array
+      Al comenzar la próxima línea con un template string
+
+      */
+      // Caso 1
+
+      console.log('Curso de JS'); console.log('Trabajando en Platzi');
+      // Caso 2.
+// Despúes del console.log se empieza con un arreglo que se desea iterar. Es obligatorio colocar el punto y coma, de lo contrario JS marca error
+console.log('Hola bienvenido');
+
+[1, 2, 3, 4].forEach((elemento) => {
+    console.log(elemento)
+})
+
+
+// Caso 3
+// No le encuentro mucho sentido a esto pero tambien marca error
+let nombre = 'Alejandro'
+console.log('JS es lo máximo');
+
+`${nombre}, te ha gustado el curso`
+
+
+// Caso 4
+// Cuando se declaran funciones que se invocan de manera automática
+console.log('Teminamos');
+
+(function(){
+    var version = 2.2
+    console.log(`Esta es una función IIFE, es decir se invoca inmediatamente y protege el ambiente de contaminarse con variables globales ${version}`)
+})()
+
+// En el contexto global, la variable version no existe, ya que fué declarada dentro de una funcion IIFE
+// console.log(version)
+    </script>
+  </body>
+</html>

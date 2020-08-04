@@ -26,8 +26,58 @@
         console.log(`${saludo} MI NOMBRE ES: ${this.nombre}`) // aqui this sera window por lo tanto nos dira: hola mi nombres es undefined!
       }
       // el bind no ata el objeto daniela a la funcion saludar(), por lo contrario lo deja quieto y crea una nueva funcion que le da el contetxo a this!
-      const saludar_a_daniela = saludar.bind(daniela) // aqui con el metodo bind le doy contexto a this para que ya no sea window
-      
+      //const saludar_a_daniela = saludar.bind(daniela) // aqui con el metodo bind le doy contexto a this para que ya no sea window
+      // otro metodo para dar contexto a this es call()
+      // call () a difrencia de bind ejecuta de una vez la funcion!
+      // saludar.call(daniela)
+      // el otro metodo apply() tambien se ejecuta solo
+      saludar.apply(daniela)
     </script>
+/*
+
+RESUMEN DE LA CLASE
+
+Declaramos dos objetos (fernando y yesika) que cada uno tiene dos atributos (nombre y apellido).
+const fernando = {
+  nombre: ' Fernando',
+  apellido: 'Huaman'
+}
+
+const yesika = {
+  nombre: ' Yesika',
+  apellido: 'Cortés'
+}
+Lo que vamos a aprender hoy es saber indicarle a la función quien es el this a la hora de invocarla.
+Para eso declaramos una función Saludar que recibe como parámetro a saludo que es igual a Hola.
+functionSaludar(saludo='Hola') {
+  console.log(`${saludo} mi nombre es ${this.nombre}`)
+}
+A pesar de que el parámetro saludo es igual a Hola es posible cambiar su valor desde la invocación de la propia función.
+Si en caso no hagas eso , su valor seguirá siendo Hola.
+Si invocamos de frente la función Saludar , el this no va a saber quién es , por lo que va a tomar como referencia el objeto window.
+Saludar()
+Hola mi nombre es undefined
+Si queremos indicarle al this quién es, tenemos tres métodos:
+PRIMER METODO:
+Hacemos uso del método bind() que tiene como estructura —> NombreFuncion.bind( NombreObjeto ).
+Si en caso la funcion tuviera parametros, podemos utilizar la siguiente estructura —> NombreFuncion.bind( NombreObjeto , ValorParametro1 , ValorParametro2 , …)
+Para poder invocar la función:
+El método bind() debe estar almacenado en una variable , ya sea var , const o let, y luego debe ser invocado dicha variable como una función —> NombreVariable()
+const saludarAFernando = Saludar.bind(fernando, 'Hola che,')
+saludarAFernando()
+SEGUNDO MÉTODO:
+Hacemos uso del método call() que tiene como estructura —> NombreFuncion.call( NombreObjeto ).
+Si en caso la funcion tuviera parametros, podemos utilizar la siguiente estructura —> NombreFuncion.call( NombreObjeto , valorParametro1 , valorParametro2, …)
+Este método call() es mas dinámico pues no hay que ser tanto proceso como el método bind() y solo con una de las estructuras que pongas en el código ya estarías invocando de frente la función e indicándole al this que objeto va a tomar como referencia.
+
+Saludar.call(fernando,'Hola che,')
+TERCER MÉTODO:
+Hacemos uso del método appy() que tiene como estructura —> NombreFuncion.apply( NombreObjeto ).
+Si en caso la función tuviera parámetros, podemos utilizar la siguiente estructura —> NombreFuncion.apply( NombreObjeto , [valorParametro1 , valorParametro2, …])
+Es muy parecido con el metodo call() , en lo que cambia es cuando vayas a indicar valores de los parámetros pues estos tienes que ponerlos en orden y dentro de un array.
+
+Saludar.apply(fernando,['Hola che'])
+
+*/
   </body>
 </html>
