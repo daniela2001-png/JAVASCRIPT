@@ -32,3 +32,10 @@ let string = "abcabc CC CCC  CCCCCCCC3CC3C3C3C3C";
 let reCriminals = /C+/g;
 let result = string.match(reCriminals);
 console.log(result); // output === ['CC', 'CCC', 'CCCCCCCC', 'CC', 'C', 'C', 'C', 'C']
+
+
+let string = "Daniela mami Daniela Daniela \
+Daniela"
+let regex = /^Daniela/g; // acuerdate que este regex es != [^Daniela] este hara match todo menos con Daniela
+let result = string.match(regex);
+console.log(result);
