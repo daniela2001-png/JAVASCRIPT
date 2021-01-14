@@ -30,3 +30,4 @@ function Dog() {
     this.color = "brown";
     this.numLegs = 4;
 };
+
