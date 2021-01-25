@@ -34,11 +34,10 @@ Aprobado
 Debe manejar palabras sin vocales. translatePigLatin("rhythm")debería devolver "rhythmay".
 
 */
-
 function translatePigLatin(str) {
     /* let re = new RegExp(/^[ae|io|u]/, 'g')
-     if (str.match(re)){
-       str  += "way"
+    if (str.match(re)){
+        str  += "way"
      */
     let regex = /^[^aeiou]+/gm;
     let con = str.match(regex); // me trae la palabra con la que hace match y retrona null si no hay match
@@ -47,9 +46,9 @@ function translatePigLatin(str) {
         str = str.concat('way');
     }
     // sino reemplazmaos las consonates por un string vacio y agregamos el match con el "ay" al final
-    // auqnue es mejor usar concat para no mutar el string original (programacion funcional)
     else {
         str = str.replace(regex, '')
+        // aqui con === "c" que es el caracter con el que hizo el match exitosamente :)
         str += con + "ay"
     }
     return str;
