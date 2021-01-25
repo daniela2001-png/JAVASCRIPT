@@ -35,19 +35,7 @@ function pairElement(str) {
     }
     let array = []
     for (let i = 0; i <= str.length - 1; i++) {
-
-        if (str[i] === "G") {
-            array.push(ADN["G"])
-        }
-        if (str[i] === "C") {
-            array.push(ADN["C"])
-        }
-        if (str[i] === "T") {
-            array.push(ADN["T"])
-        }
-        if (str[i] === "A") {
-            array.push(ADN["A"])
-        }
+        array.push(ADN[str[i]])
     }
     return array
 }
