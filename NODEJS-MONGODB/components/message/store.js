@@ -45,8 +45,14 @@ const updateStoreMensaje = async (id, mensaje) => {
     return nuevoMensaje // retornamos el nuevo mensaje ya actualizado y guardaddo
 }
 
+const eliminarMensaje = (id) => {
+    const result = modelo.findOneAndDelete({ '_id': id })
+    return result
+}
+
 module.exports = {
     'añadir': añadirMensaje,
     'listar': listarMensajes,
-    'updateStoreMensaje': updateStoreMensaje
+    'updateStoreMensaje': updateStoreMensaje,
+    "remove": eliminarMensaje
 }

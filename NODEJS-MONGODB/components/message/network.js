@@ -3,7 +3,7 @@ const router = express.Router()
 // importamos el controlador de controller.js para traer la logica que tendra cada endpoint de manera desacoplada
 const controlador = require('./controller')
 const response = require('../../network/response');
-const store = require('./store');
+
 
 
 router.get('/lista-mensajes', (req, resp) => {
@@ -38,11 +38,11 @@ router.post('/crear-mensaje', (req, resp) => {
     //console.log(req.query) // obtenemos el objeto de querys que tengamos(que sena enviados desde el request) en esta ruta 
 })
 
-router.delete('/eliminar-mensaje', (req, resp) => {
-    // aqui estamos simulando el error que le enviamos desde el request en los query params como (?error=ok) :)
-    req.query.error == "ok" ? response.error(req, resp, 'oops algo ha salido mal', 400, 'es un error simulado momentaneo :)') :
-        response.success(req, resp, 'mensaje eliminado correctamente', 204)
-})
+// router.delete('/eliminar-mensaje', (req, resp) => {
+//     // aqui estamos simulando el error que le enviamos desde el request en los query params como (?error=ok) :)
+//     req.query.error == "ok" ? response.error(req, resp, 'oops algo ha salido mal', 400, 'es un error simulado momentaneo :)') :
+//         response.success(req, resp, 'mensaje eliminado correctamente', 204)
+// })
 
 // Bien ahora crearemos un endpoint que nos permita actualizar de MANERA PARCIAL un mensaje usaremos PATCH para ello
 router.patch('/actualizar-mensaje/:id', (req, resp) => {
@@ -54,6 +54,20 @@ router.patch('/actualizar-mensaje/:id', (req, resp) => {
         })
         .catch(error => {
             response.error(req, resp, 'Error interno, disculpanos', 500, error)
+        })
+})
+
+router.delete('/eliminar-mensaje/:id', (req, resp) => {
+    let id = req.params.id
+    controlador.eliminarMensaje(id)
+        .then((mensajeEliminado) => {
+            if (mensajeEliminado !== null)
+                response.success(req, resp, `El mensaje  ${mensajeEliminado} ha sido eliminado correctamente`, 200)
+            else
+                response.error(req, resp, `Oops un error ha ocurrido`, 500, 'el usuario ya fue borrado o no existe')
+        })
+        .catch((error) => {
+            response.error(req, resp, 'Errror Interno, disculpanos!', 500, error)
         })
 })
 

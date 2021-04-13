@@ -38,9 +38,21 @@ const updateMensaje = (id, nuevoMensaje) => {
         }
     })
 }
+const eliminarMensaje = (id) => {
+    return new Promise(async (resolve, reject) => {
+        if (!id) {
+            reject('dato invalido o no existe!')
+        } else {
+            const result = await store.remove(id)
+            resolve(result)
+            return result
+        }
+    })
+}
 
 module.exports = {
     añadirMensaje,
     listarMensajes,
-    "update": updateMensaje
+    "update": updateMensaje,
+    "eliminarMensaje": eliminarMensaje
 }
