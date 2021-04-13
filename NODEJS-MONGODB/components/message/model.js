@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+const momento = require('moment');
+let moment = momento()
 const { Schema, model } = mongoose
-
 const mySchema = new Schema({
     usuario: {
         type: String,
@@ -11,7 +11,8 @@ const mySchema = new Schema({
         type: String,
         required: true
     },
-    fechaCreacion: { type: Date, default: Date.now }
+    fechaCreacion: { type: Date, default: moment.format("M/DD/YYYY HH:MM A") },
+    fechaUltimaActualizacion: { type: Date, default: moment.format("M/DD/YYYY HH:MM A") }
 })
 
 const Model = model('Mensajes', mySchema)

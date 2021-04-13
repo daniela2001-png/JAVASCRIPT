@@ -1,6 +1,5 @@
 // AQUI TENDREMOS LA LOGICA DE NEGOCIO(funciones necesarias para hacer CRUD de un mensaje) DE NUESTRO COMPONENTE message
 const chalk = require('chalk');
-let uniqid = require('uniqid');
 const store = require('./store');
 
 
@@ -23,15 +22,25 @@ const añadirMensaje = (usuario, mensaje) => {
     })
 }
 
-const listarMensajes = () => {
+const listarMensajes = (filtro) => {
     return new Promise((resolve, reject) => {
-        resolve(store.listar())
+        resolve(store.listar(filtro))
     })
 }
 
-
+const updateMensaje = (id, nuevoMensaje) => {
+    return new Promise(async (resolve, reject) => { // aqui la convertimos a una funcion async/await
+        if (!id || !nuevoMensaje) {
+            reject('los datos que ha enviado el usuario son invalidos o estan icompletos')
+        } else {
+            const resultado = await store.updateStoreMensaje(id, nuevoMensaje) // y porque ? para que el resultado de esta funcion asincrona
+            resolve(resultado) // espere hasta que se resuelva el resultado y haga le resolve sin ningun lio! 
+        }
+    })
+}
 
 module.exports = {
     añadirMensaje,
-    listarMensajes
+    listarMensajes,
+    "update": updateMensaje
 }
