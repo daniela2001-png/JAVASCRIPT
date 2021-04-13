@@ -19,7 +19,7 @@ const añadirMensaje = (mensaje) => {
 }
 
 const listarMensajes = async () => {
-    const listaMensajes = await modelo.find() // con el metodo find obtenemos todos los documentos de la db test
+    const listaMensajes = await modelo.find() // con el metodo find obtenemos todos los documentos de la db test es decir todos los objetos
     return listaMensajes
 }
 
