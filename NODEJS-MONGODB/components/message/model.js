@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const momento = require('moment');
 let moment = momento()
 const { Schema, model } = mongoose
+
+
 const mySchema = new Schema({
     usuario: {
         type: String,
@@ -16,6 +18,7 @@ const mySchema = new Schema({
 })
 
 const Model = model('Mensajes', mySchema)
+
 
 module.exports = Model
 

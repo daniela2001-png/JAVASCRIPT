@@ -1,6 +1,9 @@
 // AQUI TENDREMOS LA LOGICA DE NEGOCIO(funciones necesarias para hacer CRUD de un mensaje) DE NUESTRO COMPONENTE message
 const chalk = require('chalk');
 const store = require('./store');
+const momento = require('moment');
+let moment = momento()
+
 
 
 const añadirMensaje = (usuario, mensaje) => {
@@ -12,7 +15,8 @@ const añadirMensaje = (usuario, mensaje) => {
             let Mensaje = {
                 usuario: usuario,
                 mensaje: mensaje,
-                fechaCreacion: new Date()
+                fechaCreacion: moment.format("M/DD/YYYY HH:MM A"),
+                fechaUltimaActualizacion: moment.format("M/DD/YYYY HH:MM A")
             }
             resolve(Mensaje)
             // agregamos nuestro mensaje completo al mock de la db

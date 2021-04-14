@@ -1,22 +1,10 @@
 const modelo = require('./model')
-const db = require('mongoose');
 const momento = require('moment');
 let moment = momento()
-const chalk = require('chalk');
 
-const dbConexion = async () => {
-    try {
-        await db.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
-        console.log('LA CONEXIÓN HA SIDO EXITOSA')
-    } catch (error) {
-        console.error(chalk('UN ERROR HA OCURRIDO DURANTE LA CONEXION A LA DB'))
-    }
-}
-dbConexion()
-
-const añadirMensaje = (mensaje) => {
+const añadirMensaje = async (mensaje) => {
     // listaMensajes.push(mensaje)
-    const miMensaje = new modelo(mensaje)
+    const miMensaje = await new modelo(mensaje)
     miMensaje.save() // guardamos el mensaje creado en nuestra mongodb :) en la db test!
 }
 
@@ -45,8 +33,8 @@ const updateStoreMensaje = async (id, mensaje) => {
     return nuevoMensaje // retornamos el nuevo mensaje ya actualizado y guardaddo
 }
 
-const eliminarMensaje = (id) => {
-    const result = modelo.findOneAndDelete({ '_id': id })
+const eliminarMensaje = async (id) => {
+    const result = await modelo.findOneAndDelete({ '_id': id })
     return result
 }
 
