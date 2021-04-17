@@ -3,6 +3,9 @@ const router = express.Router()
 // importamos el controlador de controller.js para traer la logica que tendra cada endpoint de manera desacoplada
 const controlador = require('./controller')
 const response = require('../../network/response');
+// importamos el modulo multer que se encargar de hacer el proceso de subir archivos de multimedia  
+const multer = require("multer")
+const upload = multer({ dest: "uploads/" }) // esto actuara como un middleware que simplemnet es un proceso que se ejecuta 1ro antes de que se ejecute la funcion que toma como parametro esete middleware que sera upload y actuara como parametro en el post de message
 
 
 
@@ -31,7 +34,8 @@ EN NUESTRP POSTAMN PARA A LA HORA DE CREAR UN MENSAJE PODREMOS TAMBIEN NO SOLO A
 CON AYUDA DEL FORMATO RESPONSE MULTIPART EN VEZ DEL TRADICIONAL JSON
 
 */
-router.post('/crear-mensaje', (req, resp) => {
+// upload.single('archivo') sera el nombre del archivo que multer va  subir y guradar en la carpeta uploas/
+router.post('/crear-mensaje', upload.single('archivo'), (req, resp) => {
     const { usuario, mensaje, chat } = req.body
     controlador.añadirMensaje(usuario, mensaje, chat)
         .then((Mensaje) => {
