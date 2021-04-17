@@ -1,20 +1,48 @@
 const mongoose = require('mongoose');
-const momento = require('moment');
-let moment = momento()
 const { Schema, model } = mongoose
 
+/*
+Si te perdiste, pero tienes el código bien.
+Borra los mensajes de la base de datos.
+Ten creados dos usuarios en la base de datos.
+Ahora ve a crear un chat nuevo (POST) y debe ser un body JSON así:
+
+{
+	"users": [
+		"idDelUser1",
+		"idDelUser2"
+	]
+}
+Luego, ve a crear un mensaje (POST), a diferencia de la versión anterior, ahora se de le debe agregar el id del chat correspondiente de la creación que hicimos.
+
+{
+	"chat": "idChat",
+	"user": "idUser1",
+	"message": "mensaje"
+}
+Ahí puedes crear más mensajes.
+
+Luego para hacer el GET de chat, debes poner el ID del User en la URL:
+http://localhost:3000/chat/userId
+
+
+*/
 
 const mySchema = new Schema({
-    usuario: {
-        type: String,
-        required: true
-    },
+    chat: [{
+        type: Schema.ObjectId,
+        ref: 'Chat'
+    }],
+    usuario: [{
+        type: Schema.ObjectId,
+        ref: 'Usuario'
+    }],
     mensaje: {
         type: String,
         required: true
     },
-    fechaCreacion: { type: Date, default: moment.format("M/DD/YYYY HH:MM A") },
-    fechaUltimaActualizacion: { type: Date, default: moment.format("M/DD/YYYY HH:MM A") }
+    fechaCreacion: { type: Date, default: Date.now() },
+    fechaUltimaActualizacion: { type: Date, default: Date.now() }
 })
 
 const Model = model('Mensajes', mySchema)

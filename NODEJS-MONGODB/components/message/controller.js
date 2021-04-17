@@ -6,17 +6,18 @@ let moment = momento()
 
 
 
-const añadirMensaje = (usuario, mensaje) => {
+const añadirMensaje = (usuario, mensaje, chat) => {
     return new Promise((resolve, reject) => {
-        if (!usuario || !mensaje) {
+        if (!chat || !usuario || !mensaje) {
             reject('Los datos estan incompletos')
             console.error(chalk.red('Hizo falta el usuario o el mensaje por completar'))
         } else {
             let Mensaje = {
                 usuario: usuario,
                 mensaje: mensaje,
-                fechaCreacion: moment.format("M/DD/YYYY HH:MM A"),
-                fechaUltimaActualizacion: moment.format("M/DD/YYYY HH:MM A")
+                chat: chat,
+                fechaCreacion: Date.now(),
+                fechaUltimaActualizacion: Date.now()
             }
             resolve(Mensaje)
             // agregamos nuestro mensaje completo al mock de la db

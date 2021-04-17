@@ -26,14 +26,19 @@ router.get('/lista-mensajes', (req, resp) => {
 
 })
 
+/*
+EN NUESTRP POSTAMN PARA A LA HORA DE CREAR UN MENSAJE PODREMOS TAMBIEN NO SOLO AGREGAR TEXTO SINO TAMBIEN CONTENICO MULTIMEDA
+CON AYUDA DEL FORMATO RESPONSE MULTIPART EN VEZ DEL TRADICIONAL JSON
+
+*/
 router.post('/crear-mensaje', (req, resp) => {
-    const { usuario, mensaje } = req.body
-    controlador.añadirMensaje(usuario, mensaje)
+    const { usuario, mensaje, chat } = req.body
+    controlador.añadirMensaje(usuario, mensaje, chat)
         .then((Mensaje) => {
             response.success(req, resp, Mensaje, 201)
         })
         .catch(error => {
-            response.error(req, resp, 'Informacion invalida', 400, 'Error en el controlador')
+            response.error(req, resp, 'Informacion invalida', 400, error)
         })
     //console.log(req.query) // obtenemos el objeto de querys que tengamos(que sena enviados desde el request) en esta ruta 
 })
