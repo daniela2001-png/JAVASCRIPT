@@ -2,10 +2,14 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const server = require("http").Server(app)
 const router = require('./network/routes')
 const PORT = 3000
 const db = require("./db")
+const { connect } = require('./socket')
 
+// concetamos el sokcet.io a nuestra API
+connect(server)
 db()
 
 app.use(express.json())
@@ -26,6 +30,6 @@ const options = {
 
 // desde la ruta /static/ podemos acceder a las rutas (names directorys) que esten dentro de public por ejemplo: si pongo /static/css/index.css me mostrara el css que he creado :)
 app.use('/app', express.static('public', options))
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Escuchando en el puerto: ${PORT}`)
 })
