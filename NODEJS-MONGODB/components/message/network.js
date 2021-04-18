@@ -5,9 +5,33 @@ const controlador = require('./controller')
 const response = require('../../network/response');
 // importamos el modulo multer que se encargar de hacer el proceso de subir archivos de multimedia  
 const multer = require("multer")
-const upload = multer({ dest: "uploads/" }) // esto actuara como un middleware que simplemnet es un proceso que se ejecuta 1ro antes de que se ejecute la funcion que toma como parametro esete middleware que sera upload y actuara como parametro en el post de message
-
-
+const path = require("path")
+const { nanoid } = require('nanoid')
+// esto actuara como un middleware que simplemnet es un proceso que se ejecuta 1ro antes de que se ejecute la funcion que toma como parametro esete middleware que sera upload y actuara como parametro en el post de message
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/files') // aqui es donde se guardaran todos nuestro ficheros que sean subidos exitosamente y podremos aceder a ellos :)
+    },
+    filename: function (req, file, cb) {
+        const extension = path.extname(file.originalname)
+        let filename = nanoid(10) + extension // el fichero quedara guardado con un nombre unico y su extension ejemplo => 2lhergcuwe46.pdf
+        cb(null, filename)
+    }
+})
+let upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "text/markdown" || file.mimetype == "text/markdown" || file.mimetype == "application/pdf") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('File types allowed .jpeg, .jpg and .png .pdf .md!'));
+        }
+    }
+})
 
 router.get('/lista-mensajes', (req, resp) => {
     // console.log('SOY UN QUERY PARAM EN FORMA DE LISTA: ', req.query.color)
@@ -37,7 +61,8 @@ CON AYUDA DEL FORMATO RESPONSE MULTIPART EN VEZ DEL TRADICIONAL JSON
 // upload.single('archivo') sera el nombre del archivo que multer va  subir y guradar en la carpeta uploas/
 router.post('/crear-mensaje', upload.single('archivo'), (req, resp) => {
     const { usuario, mensaje, chat } = req.body
-    controlador.añadirMensaje(usuario, mensaje, chat)
+    console.log('archivo a subir', req.file)
+    controlador.añadirMensaje(usuario, mensaje, chat, req.file)
         .then((Mensaje) => {
             response.success(req, resp, Mensaje, 201)
         })

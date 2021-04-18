@@ -8,17 +8,17 @@ Ten creados dos usuarios en la base de datos.
 Ahora ve a crear un chat nuevo (POST) y debe ser un body JSON así:
 
 {
-	"users": [
-		"idDelUser1",
-		"idDelUser2"
-	]
+    "users": [
+        "idDelUser1",
+        "idDelUser2"
+    ]
 }
 Luego, ve a crear un mensaje (POST), a diferencia de la versión anterior, ahora se de le debe agregar el id del chat correspondiente de la creación que hicimos.
 
 {
-	"chat": "idChat",
-	"user": "idUser1",
-	"message": "mensaje"
+    "chat": "idChat",
+    "user": "idUser1",
+    "message": "mensaje"
 }
 Ahí puedes crear más mensajes.
 
@@ -41,6 +41,7 @@ const mySchema = new Schema({
         type: String,
         required: true
     },
+    file: String,
     fechaCreacion: { type: Date, default: Date.now() },
     fechaUltimaActualizacion: { type: Date, default: Date.now() }
 })

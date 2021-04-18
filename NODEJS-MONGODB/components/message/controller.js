@@ -1,21 +1,25 @@
 // AQUI TENDREMOS LA LOGICA DE NEGOCIO(funciones necesarias para hacer CRUD de un mensaje) DE NUESTRO COMPONENTE message
 const chalk = require('chalk');
 const store = require('./store');
-const momento = require('moment');
-let moment = momento()
 
 
 
-const añadirMensaje = (usuario, mensaje, chat) => {
+
+const añadirMensaje = (usuario, mensaje, chat, file) => {
     return new Promise((resolve, reject) => {
         if (!chat || !usuario || !mensaje) {
             reject('Los datos estan incompletos')
             console.error(chalk.red('Hizo falta el usuario o el mensaje por completar'))
         } else {
+            let fileUrl = ''
+            if (file) {
+                fileUrl = "http://localhost:3000/app/files/" + file.filename // aqui le mandamos la ruta donde podremos encontrar un fichero que haya sido subido con exito en static es en donde servimos nuestro archivos estaticos :3
+            }
             let Mensaje = {
                 usuario: usuario,
                 mensaje: mensaje,
                 chat: chat,
+                file: fileUrl,
                 fechaCreacion: Date.now(),
                 fechaUltimaActualizacion: Date.now()
             }
