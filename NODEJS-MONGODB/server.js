@@ -25,7 +25,7 @@ const options = {
 
 
 // desde la ruta /static/ podemos acceder a las rutas (names directorys) que esten dentro de public por ejemplo: si pongo /static/css/index.css me mostrara el css que he creado :)
-app.use('/static', express.static('public', options))
+app.use('/app', express.static('public', options))
 app.listen(PORT, () => {
     console.log(`Escuchando en el puerto: ${PORT}`)
 })
